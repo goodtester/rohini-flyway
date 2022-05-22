@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+    web:
+        build: .
+        platform: linux/x86_64
+        container_name: web
+        ports:
+            - "8888:8080"
+        depends_on:
+            - db
+        links:
+            - db
+
+    db:
+        platform: linux/x86_64
+        image: mysql:8.0.27
+        container_name: db
+        restart: always
+        environment:
+            MYSQL_DATABASE: flyway
+            MYSQL_ROOT_PASSWORD: f1yway
+        ports:
+            - "3306:3306"
+        expose:
+            - 3306
+        volumes:
+            - ./sql:/docker-entrypoint-initdb.d
+            - flyway-db:/var/lib/mysql
+        command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+    flyway-db:

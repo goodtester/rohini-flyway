@@ -1,0 +1,11 @@
+.classpath
+.settings/
+.git/
+.github/
+.vscode/
+target/
+.editorconfig
+.dockerignore
+Dockerfile
+LICENSE
+README.md
