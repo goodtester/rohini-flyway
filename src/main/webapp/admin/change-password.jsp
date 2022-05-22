@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <jsp:include page="nav.jsp" />
+    <jsp:include page="../nav.jsp" />
 	<!-- Page content-->
 	<div class="container mt-5">
 	    <div class="row">
